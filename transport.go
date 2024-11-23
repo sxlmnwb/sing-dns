@@ -12,8 +12,10 @@ import (
 	"github.com/miekg/dns"
 )
 
-type TransportConstructor = func(options TransportOptions) (Transport, error)
-type UpstreamConstructor = func(options UpstreamOptions) (Upstream, error)
+type (
+	TransportConstructor = func(options TransportOptions) (Transport, error)
+	UpstreamConstructor  = func(options UpstreamOptions) (Upstream, error)
+)
 
 type Transport interface {
 	Name() string
@@ -34,8 +36,10 @@ type TransportOptions struct {
 	ClientSubnet netip.Prefix
 }
 
-var transports map[string]TransportConstructor
-var upstreams map[string]UpstreamConstructor
+var (
+	transports map[string]TransportConstructor
+	upstreams  map[string]UpstreamConstructor
+)
 
 func RegisterTransport(schemes []string, constructor TransportConstructor) {
 	if transports == nil {

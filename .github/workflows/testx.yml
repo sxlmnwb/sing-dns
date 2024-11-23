@@ -1,18 +1,15 @@
-name: test
+name: testx
 
 on:
   push:
     branches:
       - main
-      - dev
     paths-ignore:
       - '**.md'
       - '.github/**'
-      - '!.github/workflows/debug.yml'
   pull_request:
     branches:
       - main
-      - dev
 
 jobs:
   build:

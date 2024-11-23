@@ -8,9 +8,10 @@ import (
 	"os"
 	"sync"
 
-	"github.com/miekg/dns"
 	"github.com/sagernet/sing/common/logger"
 	N "github.com/sagernet/sing/common/network"
+
+	"github.com/miekg/dns"
 )
 
 var _ Transport = (*BaseTransport)(nil)
